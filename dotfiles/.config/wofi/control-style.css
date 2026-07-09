@@ -1,0 +1,45 @@
+/* Container box */
+window {
+    margin: 0px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background-color: rgba(20, 20, 24, 0.85);
+    font-family: "JetBrains Mono Nerd Font", sans-serif;
+    font-size: 14px;
+}
+
+/* Hide the search entry box completely to make it feel like a static panel */
+#entry {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+}
+
+#input {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: transparent;
+    opacity: 0;
+}
+
+/* Outer list wrapper */
+#outer-box {
+    margin: 10px;
+    padding: 5px;
+}
+
+/* Individual option items - Styled like click cards */
+#text {
+    margin: 5px;
+    padding: 12px;
+    color: #cdd6f4;
+}
+
+/* Hover / Selection effect */
+#text:selected {
+    color: #11111b;
+    background: linear-gradient(45deg, #b4befe, #89b4fa);
+    border-radius: 8px;
+}

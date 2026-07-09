@@ -1,0 +1,8 @@
+show=drun
+prompt=Search...
+allow_images=true
+image_size=32
+no_actions=true
+insensitive=true
+# Make the search fuzzy (so you don't have to type perfectly)
+matching=fuzzy

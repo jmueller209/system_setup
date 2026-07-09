@@ -1,0 +1,5 @@
+wofi
+waybar
+dolphin
+waypaper
+swww

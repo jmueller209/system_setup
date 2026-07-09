@@ -1,0 +1,47 @@
+;; Bulletproof volume tracking
+(defpoll current-volume :interval "1s" :initial "50"
+  "LC_ALL=C wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{ printf \"%.0f\", $2 * 100 }' || echo 0")
+
+(defwindow control_panel
+  :monitor "DP-1"
+  :geometry (geometry :x "0px"
+                      :y "0px"
+                      :width "100%"
+                      :height "100%"
+                      :anchor "center")
+  :stacking "overlay"
+  :exclusive false
+  (overlay
+    ;; 1. THE INVISIBLE SHIELD (Bottom Layer)
+    (eventbox :onclick "eww close control_panel"
+      (box))
+    
+    ;; 2. THE ACTUAL PANEL (Top Layer)
+    (box :halign "end" :valign "start" :style "margin: 50px 20px 0 0;"
+      ;; This eventbox intercepts clicks so they don't fall through to the shield!
+      (eventbox :onclick "true"  
+        (panel_layout)))))
+
+(defwidget panel_layout []
+  (box :class "panel-container" :orientation "vertical" :space-evenly false :spacing 15
+    
+    (label :class "panel-title" :text "Control Center" :halign "start")
+    
+    (box :orientation "horizontal" :spacing 10 :space-evenly true
+      (button :class "btn-wifi" :onclick "nmcli radio wifi off" "󰖩  Wi-Fi")
+      (button :class "btn-bluetooth" :onclick "blueman-manager" "󰂯  Bluetooth"))
+    
+    (box :class "audio-slider-box" :orientation "vertical" :space-evenly false :spacing 5
+      (box :orientation "horizontal" :space-evenly true
+        (label :class "slider-label" :text "󰕾 System Volume" :halign "start")
+        (label :class "slider-value" :text "${current-volume}%" :halign "end"))
+      
+      (scale :class "volume-scale"
+             :min 0
+             :max 101
+             :value {current-volume == "" ? 0 : current-volume}
+             :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"))
+
+    (box :orientation "horizontal" :spacing 10 :space-evenly true
+      (button :class "btn-lock" :onclick "eww close control_panel && hyprlock" "🔒 Lock")
+      (button :class "btn-power" :onclick "eww close control_panel && wlogout" "󰐥 Power"))))

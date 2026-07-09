@@ -1,0 +1,69 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "layer-shell-cover-screen": true,
+  "fit-to-screen": false,
+  "cssPriority": "user",
+  "control-center-margin-top": 15,
+  "control-center-margin-bottom": 15,
+  "control-center-margin-right": 15,
+  "control-center-margin-left": 15,
+  "control-center-width": 400,
+  
+  "widgets": [
+    "buttons-grid",
+    "volume",
+    "mpris"
+  ],
+
+  "widget-config": {
+    "volume": {
+      "label": "󰕾"
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 12,
+      "autohide": true
+    },
+    "buttons-grid": {
+      "buttons-per-row": 2,
+      "actions": [
+        {
+          "label": "󰖩   Wi-Fi",
+          "type": "toggle",
+          "active": true,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+          "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+        },
+        {
+          "label": "󰂯   Bluetooth Settings",
+          "command": "blueman-manager"
+        },
+        {
+          "label": "🔒  Lock Screen",
+          "command": "sh -c 'swaync-client -t -sw && hyprlock'"
+        },
+        {
+          "label": "󰐥  Shutdown Now",
+          "command": "shutdown now"
+        },
+        {
+          "label": "󰓃  Audio Output",
+          "command": "sh -c 'swaync-client -t -sw && ~/.config/swaync/audio-selector.sh'"
+        },
+        {
+          "label": "󰐥  Power Menu",
+          "command": "sh -c 'swaync-client -t -sw && wlogout'"
+        },
+        {
+          "label": "󰍬  App Volumes",
+          "command": "sh -c 'swaync-client -t -sw && pavucontrol --tab=3'"
+        }
+      ]
+    }
+  }
+}

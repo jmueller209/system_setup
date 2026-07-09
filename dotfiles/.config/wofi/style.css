@@ -1,0 +1,88 @@
+/* Main container window */
+window {
+    margin: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    background-color: rgba(30, 30, 30, 0.65); /* Slightly more transparent */
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+}
+
+/* Remove default GTK styling from the outer box */
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Search bar - cleaned up to look like a floating text field */
+#input {
+    margin: 10px 20px 10px 20px; /* Pulls it away from the window edges */
+    padding: 10px 0px 15px 0px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* The signature Spotlight separator */
+    border-radius: 0px;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 26px; /* Larger, more commanding search text */
+}
+
+/* Remove the blue outline when typing in the search box */
+#input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* The area containing the search results */
+#inner-box {
+    margin: 5px 15px 15px 15px; /* Gives the list room to breathe */
+    border: none;
+    background-color: transparent;
+}
+
+/* Hide the clunky default scrollbar */
+#scroll {
+    margin: 0px;
+    border: none;
+}
+scrollbar {
+    opacity: 0;
+}
+
+/* Individual application rows */
+#entry {
+    padding: 10px 14px;
+    margin: 2px 0px; /* Tiny gap between items prevents the blue box from looking like a giant block */
+    border-radius: 8px; /* Slightly more rounded, matching modern macOS */
+    background-color: transparent;
+}
+
+/* Subtle hover effect if you ever use your mouse */
+#entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* The highlighted application */
+#entry:selected {
+    background-color: #007AFF; /* Mac electric blue */
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Application text styling */
+#text {
+    margin-left: 8px; /* Extra spacing after the icon */
+    color: #d1d1d1; /* Slightly dim unselected text... */
+}
+
+/* Make the selected text stark white so it pops against the blue */
+#entry:selected #text {
+    color: #ffffff;
+    font-weight: 500; /* Subtle weight increase, cleaner than full bold */
+}
+
+/* Icon spacing */
+#image {
+    margin-right: 8px;
+}
