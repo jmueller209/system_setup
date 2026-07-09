@@ -2,7 +2,6 @@
 
 CONTAINER_NAME="dev-test-env"
 USER_NAME="tester"
-LOCAL_SCRIPT_DIR="$HOME/Nextcloud/scripts"
 
 echo "Spinning up fresh container: $CONTAINER_NAME"
 podman run -dt --rm --name "$CONTAINER_NAME" fedora:latest /bin/bash
