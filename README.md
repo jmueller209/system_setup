@@ -35,3 +35,15 @@ Clone this repository to your home directory:
 git clone
 cd ~/system_setup
 ```
+
+### 3. Run the Installer
+Run the installer script to set up your system:
+```bash
+make install
+```
+
+### 4. Testing the installation scripts
+You quickly fire up a podman container to test the installation scripts without affecting your host system. This is especially useful for testing new scripts or configurations. Just run the following command:
+```bash
+make test
+```
