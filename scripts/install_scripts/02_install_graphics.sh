@@ -84,11 +84,35 @@ execute_step "Enabling Starship Repo" sudo dnf copr enable atim/starship -y
 execute_step "Enabling Hyprland Repo" sudo dnf copr enable solopasha/hyprland -y
 
 # 2. System Packages (Using --allowerasing to fix Tuned/PPD conflicts)
-execute_step "Installing Hyprland & Core GUI" sudo dnf install --allowerasing -y \
-    hyprland sddm tuned kitty waybar hyprpolkitagent \
-    nautilus pavucontrol alsa-sof-firmware alsa-utils blueman NetworkManager-wifi \
-    iwl* nm-connection-editor gvfs gvfs-mtp \
-    wofi hyprlock hypridle hyprpaper fastfetch starship
+GUI_PACKAGES=(
+    "hyprland"
+    "sddm"
+    "tuned"
+    "kitty"
+    "waybar"
+    "hyprpolkitagent"
+    "nautilus"
+    "pavucontrol"
+    "alsa-sof-firmware"
+    "alsa-utils"
+    "blueman"
+    "NetworkManager-wifi"
+    "iwl*"
+    "nm-connection-editor"
+    "gvfs"
+    "gvfs-mtp"
+    "wofi"
+    "hyprlock"
+    "hypridle"
+    "hyprpaper"
+    "fastfetch"
+    "starship"
+)
+
+echo "Installing Hyprland & Core GUI Packages..."
+for pkg in "${GUI_PACKAGES[@]}"; do
+    execute_step "Installing $pkg" sudo dnf install --allowerasing -y "$pkg"
+done
 
 # 3. User Space Configurations
 execute_step "Configuring Starship Prompt" setup_starship
