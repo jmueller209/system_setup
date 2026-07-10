@@ -81,7 +81,7 @@ enable_display_manager() {
 
 # 1. Add Copr Repositories
 execute_step "Enabling Starship Repo" sudo dnf copr enable atim/starship -y
-execute_step "Enabling Hyprland Repo" sudo dnf copr enable solopasha/hyprland -y
+execute_step "Enabling Lionheartp Hyprland Repo" sudo dnf copr enable lionheartp/Hyprland -y
 
 # 2. System Packages (Using --allowerasing to fix Tuned/PPD conflicts)
 GUI_PACKAGES=(
