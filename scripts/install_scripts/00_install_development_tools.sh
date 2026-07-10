@@ -41,7 +41,8 @@ install_oss_cad() {
     sudo tar -xzf /tmp/suite.tgz -C "$INSTALL_DIR" --strip-components=1
     echo 'export PATH=/opt/oss-cad-suite/bin:$PATH' | sudo tee /etc/profile.d/oss-cad.sh > /dev/null
     rm /tmp/suite.tgz
-
+    
+    source /etc/profile.d/oss-cad.sh
     # Handle Udev rules if the file exists next to this script
     if [ -f "$SCRIPT_DIR/99-gatemate.rules" ]; then
         sudo cp "$SCRIPT_DIR/99-gatemate.rules" /etc/udev/rules.d/
