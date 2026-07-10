@@ -44,10 +44,10 @@ palette = "saliencedark"
 #no_hooks = true
 
 [templates]
-wofi = { template = 'wofi.css', target = '~/dotfiles/wofi/.config/wofi/colors.css' }
-kitty = { template = 'kitty.conf', target = '~/dotfiles/kitty/.config/kitty/wallust.conf' }
-waybar = { template = 'waybar.css', target = '~/dotfiles/waybar/.config/waybar/colors.css' }
-hyprland = { template = 'hyprland-colors.lua', target = '~/dotfiles/hypr/.config/hypr/colors.lua' }
+wofi = { template = 'wofi.css', target = '~/system_setup/dotfiles/.config/wofi/colors.css' }
+kitty = { template = 'kitty.conf', target = '~/system_setup/dotfiles/.config/kitty/wallust.conf' }
+waybar = { template = 'waybar.css', target = '~/system_setup/dotfiles/.config/waybar/colors.css' }
+hyprland = { template = 'hyprland-colors.lua', target = '~/system_setup/dotfiles/.config/hypr/colors.lua' }
 
 [hooks]
 kitty_reload = 'killall -SIGUSR1 kitty'
