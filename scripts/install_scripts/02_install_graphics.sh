@@ -47,6 +47,10 @@ install_nerdfont() {
 }
 
 install_wallust() {
+    # Teach THIS specific script where Cargo is right before we need it
+    if [ -f "$HOME/.cargo/env" ]; then
+        source "$HOME/.cargo/env"
+    fi
     # Check if cargo is available (installed in 00_dev_tools)
     if ! command -v cargo &> /dev/null; then
         echo "  - ERROR: Cargo is not installed. Run dev tools script first."
