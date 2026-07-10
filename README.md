@@ -32,7 +32,7 @@ sudo dnf install git -y
 ### 2. Clone the Repository
 Clone this repository to your home directory:
 ```bash
-git clone
+git clone https://github.com/jmueller209/system_setup.git
 cd ~/system_setup
 ```
 
