@@ -1,15 +1,15 @@
-# 🚀 Fedora System Setup & Dotfiles
+# Fedora System Setup & Dotfiles
 
-A fully automated, modular provisioning repository for setting up a complete Linux development environment and window manager configuration.
+An automated, modular repository for setting up a complete Linux development environment and window manager configuration.
 
 > [!WARNING]  
-> **Fedora Linux Only!** > These scripts rely heavily on the `dnf` package manager and Fedora-specific system configurations. Running this on Debian/Ubuntu, Arch, or macOS will fail and could potentially damage your system environment.
+> **Fedora Linux Only!** > These scripts rely heavily on the `dnf` package manager and Fedora-specific system configurations. Running this on Debian/Ubuntu, Arch, or macOS will fail.
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
-This repository separates the **Installer** from the **Payload**, keeping things perfectly clean:
+This repository separates the **Installer** from the **Payload**:
 
 * **`dotfiles/`**: The pure configuration payload. Folders inside here (like `.config/` or `wallpaper/`) are symlinked directly to your home directory using GNU Stow.
 * **`scripts/`**: Modular Bash scripts for installing dependencies, setting up SSH, and configuring tools (Rust, Conda, FPGA toolchains, etc.).
@@ -19,7 +19,7 @@ This repository separates the **Installer** from the **Payload**, keeping things
 
 ## 🛠️ Getting Started
 
-To get started on a fresh Fedora installation, you only need to install `git` and clone this repository.
+To get started on a fresh Fedora installation, you only need to install `git` and `make` and clone this repository.
 
 ### 1. Install Git
 Open your terminal and install Git using `dnf`:
@@ -39,11 +39,10 @@ cd ~/system_setup
 ### 3. Run the Installer
 Run the installer script to set up your system:
 ```bash
-make install
+make all
 ```
 
-### 4. Testing the installation scripts
-You quickly fire up a podman container to test the installation scripts without affecting your host system. This is especially useful for testing new scripts or configurations. Just run the following command:
+You can also run the following command to print a list of avaibale subcommands that can be used to only install parts of the configuration:
 ```bash
-make test
+make help
 ```
