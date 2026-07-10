@@ -18,7 +18,6 @@ sudo dnf install -y \
     podman \
     distrobox \
     gdb \
-    codium \
     zathura \
     zathura-pdf-mupdf \
     texlive-scheme-medium \
