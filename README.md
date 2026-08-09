@@ -17,7 +17,7 @@ This repository separates the **Installer** from the **Payload**:
 
 ---
 
-## 🛠️ Getting Started
+## Getting Started
 
 To get started on a fresh Fedora installation, you only need to install `git` and `make` and clone this repository.
 
