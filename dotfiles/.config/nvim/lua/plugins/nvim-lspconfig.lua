@@ -219,7 +219,11 @@ return {
 			rust_analyzer = {},
 			vhdl_ls = {},
 			clangd = {
-				cmd = { "clangd", "--background-index" },
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--query-driver=/home/jonas-backup/.platformio/packages/toolchain-gccarmnoneeabi-teensy/bin/arm-none-eabi-*",
+				},
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 				root_dir = require("lspconfig.util").root_pattern(
 					".clangd",
