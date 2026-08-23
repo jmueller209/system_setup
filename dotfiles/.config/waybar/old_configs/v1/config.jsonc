@@ -1,0 +1,24 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 24,
+  "spacing": 5,
+  "modules-left": [],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["cpu", "memory", "battery", "pulseaudio", "clock", "tray", "custom/control-center"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "sort-by": "id",
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    },
+  },
+
+  "custom/control-center": {
+        "format": "⚙️",
+        "tooltip": false,
+        "on-click": "echo 'Control Center clicked!'"
+    }
+  
+}

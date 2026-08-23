@@ -1,10 +1,9 @@
 @import "colors.css";
 
 * {
-    /* Make sure you have a Nerd Font installed if you use icons in your config! */
     font-family: "JetBrains Mono", "Font Awesome 6 Free", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 500;
     border: none;
     border-radius: 0;
     min-height: 0; 
@@ -12,40 +11,40 @@
 
 /* --- Main Bar Background --- */
 window#waybar {
-    background-color: alpha(@background, 0.75); 
+    background-color: alpha(@background, 0.85); 
     color: @foreground;
     transition: background-color 0.5s ease;
 }
 
 /* --- Workspaces --- */
 #workspaces {
-    background-color: alpha(@foreground, 0.06);
+    background-color: alpha(@foreground, 0.08);
     margin: 4px 8px;
     padding: 2px 4px;
-    border-radius: 16px; /* Pill shape for the workspace container */
+    border-radius: 6px; 
 }
 
 #workspaces button {
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0 2px;
-    color: @color8; /* Muted color for inactive workspaces */
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68); /* Bouncy transition */
+    color: @color8; 
+    border-radius: 4px;
+    transition: all 0.2s ease; 
 }
 
 #workspaces button.active {
     color: @background;
-    background-color: @color4; /* Blue/Accent color */
-    padding: 0 18px; /* Expands visually when active */
-    border-radius: 12px;
+    background-color: @foreground; 
+    padding: 0 12px; 
+    border-radius: 4px;
 }
 
 #workspaces button:hover {
-    background-color: alpha(@color4, 0.4);
+    background-color: alpha(@foreground, 0.2);
     color: @foreground;
 }
 
-/* --- General Module Styling (The "Bubbles") --- */
+/* --- General Module Styling --- */
 #clock, 
 #pulseaudio, 
 #network, 
@@ -54,49 +53,28 @@ window#waybar {
 #tray, 
 #battery,
 #custom-media {
-    background-color: alpha(@foreground, 0.06);
-    padding: 0 14px;
+    background-color: alpha(@foreground, 0.08);
+    padding: 0 12px;
     margin: 4px 4px;
-    border-radius: 14px;
+    border-radius: 6px;
     color: @foreground;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 /* --- Semantic Coloring for Modules --- */
-/* Wallust standardizes colors, so we can map them beautifully */
-
-#clock {
-    color: @color5; /* Usually Magenta/Purple */
-    font-weight: 800;
-}
-
-#pulseaudio {
-    color: @color6; /* Usually Cyan/Teal */
-}
-
-#network {
-    color: @color3; /* Usually Yellow */
-}
-
-#cpu {
-    color: @color1; /* Usually Red */
-}
-
-#memory {
-    color: @color2; /* Usually Green */
-}
-
-#battery {
-    color: @color4;
-}
+/* Kept clean: only battery gets colors for status alerts */
 
 #battery.charging {
-    color: @color2; /* Turns green when charging */
+    color: @color2; 
     background-color: alpha(@color2, 0.1);
 }
 
 #battery.warning:not(.charging) {
-    background-color: @color1; /* Red background when battery is dying */
+    color: @color3; 
+}
+
+#battery.critical:not(.charging) {
+    background-color: @color1; 
     color: @background;
 }
 

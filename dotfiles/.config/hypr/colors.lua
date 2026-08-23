@@ -2,15 +2,15 @@ local M = {}
 
 M.border = {
 	-- We keep the strip and saturate filters so the border pops!
-	c1 = "3546BC",
-	c2 = "5BA128",
-	c3 = "D22143",
-	c4 = "1AB7BC",
-	c5 = "D66B20",
-	c6 = "C102C3",
+	c1 = "000F34",
+	c2 = "152986",
+	c3 = "6B1661",
+	c4 = "5B2CAB",
+	c5 = "1A6BBC",
+	c6 = "D738AB",
 
 	-- Inactive border (color0)
-	inactive = "05050C",
+	inactive = "04050B",
 }
 
 return M
