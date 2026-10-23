@@ -10,4 +10,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("waypaper --restore")
 
 	hl.exec_cmd("ags")
+
+	-- 4. Chinese langauge support
+	hl.exec_cmd("fcitx5 -d")
 end)

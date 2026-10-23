@@ -1,0 +1,116 @@
+@import "colors.css";
+
+* {
+    /* Make sure you have a Nerd Font installed if you use icons in your config! */
+    font-family: "JetBrains Mono", "Font Awesome 6 Free", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 0;
+    min-height: 0; 
+}
+
+/* --- Main Bar Background --- */
+window#waybar {
+    background-color: alpha(@background, 0.75); 
+    color: @foreground;
+    transition: background-color 0.5s ease;
+}
+
+/* --- Workspaces --- */
+#workspaces {
+    background-color: alpha(@foreground, 0.06);
+    margin: 4px 8px;
+    padding: 2px 4px;
+    border-radius: 16px; /* Pill shape for the workspace container */
+}
+
+#workspaces button {
+    padding: 0 10px;
+    margin: 0 2px;
+    color: @color8; /* Muted color for inactive workspaces */
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68); /* Bouncy transition */
+}
+
+#workspaces button.active {
+    color: @background;
+    background-color: @color4; /* Blue/Accent color */
+    padding: 0 18px; /* Expands visually when active */
+    border-radius: 12px;
+}
+
+#workspaces button:hover {
+    background-color: alpha(@color4, 0.4);
+    color: @foreground;
+}
+
+/* --- General Module Styling (The "Bubbles") --- */
+#clock, 
+#pulseaudio, 
+#network, 
+#cpu, 
+#memory, 
+#tray, 
+#battery,
+#custom-media {
+    background-color: alpha(@foreground, 0.06);
+    padding: 0 14px;
+    margin: 4px 4px;
+    border-radius: 14px;
+    color: @foreground;
+    transition: all 0.3s ease;
+}
+
+/* --- Semantic Coloring for Modules --- */
+/* Wallust standardizes colors, so we can map them beautifully */
+
+#clock {
+    color: @color5; /* Usually Magenta/Purple */
+    font-weight: 800;
+}
+
+#pulseaudio {
+    color: @color6; /* Usually Cyan/Teal */
+}
+
+#network {
+    color: @color3; /* Usually Yellow */
+}
+
+#cpu {
+    color: @color1; /* Usually Red */
+}
+
+#memory {
+    color: @color2; /* Usually Green */
+}
+
+#battery {
+    color: @color4;
+}
+
+#battery.charging {
+    color: @color2; /* Turns green when charging */
+    background-color: alpha(@color2, 0.1);
+}
+
+#battery.warning:not(.charging) {
+    background-color: @color1; /* Red background when battery is dying */
+    color: @background;
+}
+
+/* --- Tray --- */
+#tray {
+    padding: 0 10px;
+    margin-right: 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @color1;
+}

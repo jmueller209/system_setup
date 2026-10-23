@@ -107,6 +107,12 @@ GUI_PACKAGES=(
     "hyprpaper"
     "fastfetch"
     "starship"
+    # Chinese input (Fcitx5 + Pinyin)
+    "fcitx5"
+    "fcitx5-configtool"
+    "fcitx5-chinese-addons"
+    "fcitx5-gtk"
+    "fcitx5-qt"
 )
 
 echo "Installing Hyprland & Core GUI Packages..."
